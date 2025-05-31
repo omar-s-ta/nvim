@@ -7,7 +7,9 @@ local map = vim.keymap.set
 map("n", "<C-d>", "<C-d>zz", { desc = "Scroll down half page" })
 map("n", "<C-u>", "<C-u>zz", { desc = "Scroll up half page" })
 map("n", "gg", "gg0", { desc = "Move to the first position in current file" })
+map("v", "gg", "gg0", { desc = "Move to the first position in current file" })
 map("n", "G", "G$", { desc = "Move to the last position in the current file" })
+map("v", "G", "G$", { desc = "Move to the last position in the current file" })
 
 --  Resize window using <ctrl><shift> arrow keys
 --  Overrides default keymaps
