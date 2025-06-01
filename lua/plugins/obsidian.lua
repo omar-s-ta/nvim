@@ -1,6 +1,10 @@
 return {
   {
-    "omar-s-ta/obsidian.nvim",
+    dir = "~/development/sebres/third-party/obsidian.nvim",
+    name = "obsidian.nvim",
+  },
+  {
+    "obsidian.nvim",
     lazy = true,
     ft = "markdown",
     dependencies = {
@@ -14,7 +18,6 @@ return {
         },
       },
       completion = {
-        nvim_cmp = true,
         min_chars = 2,
       },
       -- new_notes_location = "notes_subdir",
