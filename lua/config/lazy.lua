@@ -22,8 +22,6 @@ require("lazy").setup({
     -- edgy must be imported before aerial
     { import = "lazyvim.plugins.extras.ui.edgy" },
 
-    { import = "lazyvim.plugins.extras.ai.codeium" },
-
     { import = "lazyvim.plugins.extras.coding.luasnip" },
     { import = "lazyvim.plugins.extras.coding.mini-surround" },
     { import = "lazyvim.plugins.extras.coding.neogen" },
