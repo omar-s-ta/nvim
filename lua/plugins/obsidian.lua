@@ -34,29 +34,47 @@ return {
       --   time_format = "%H:%M",
       -- },
       mappings = {
-        ["<leader>on"] = { action = ":ObsidianNew<CR>", opts = { noremap = true, silent = true } },
-        ["<leader>os"] = { action = ":ObsidianSearch<CR>", opts = { noremap = true, silent = true } },
-        ["<leader>oq"] = { action = ":ObsidianQuickSwitch<CR>", opts = { noremap = true, silent = true } },
-        ["<leader>ob"] = { action = ":ObsidianBacklinks<CR>", opts = { noremap = true, silent = true } },
-        ["<leader>ot"] = { action = ":ObsidianTemplate<CR>", opts = { noremap = true, silent = true } },
-        ["<leader>op"] = { action = ":ObsidianPasteImg<CR>", opts = { noremap = true, silent = true } },
+        ["<leader>on"] = {
+          action = ":ObsidianNew<CR>",
+          opts = { noremap = true, silent = true, desc = "obsidian_new" },
+        },
+        ["<leader>os"] = {
+          action = ":ObsidianSearch<CR>",
+          opts = { noremap = true, silent = true, desc = "obsidian_search" },
+        },
+        ["<leader>oq"] = {
+          action = ":ObsidianQuickSwitch<CR>",
+          opts = { noremap = true, silent = true, desc = "obsidian_quick_switch" },
+        },
+        ["<leader>ob"] = {
+          action = ":ObsidianBacklinks<CR>",
+          opts = { noremap = true, silent = true, desc = "obsidian_back_links" },
+        },
+        ["<leader>ot"] = {
+          action = ":ObsidianTemplate<CR>",
+          opts = { noremap = true, silent = true, desc = "obsidian_template" },
+        },
+        ["<leader>op"] = {
+          action = ":ObsidianPasteImg<CR>",
+          opts = { noremap = true, silent = true, desc = "obsdian_paste_img" },
+        },
         ["<leader>ogf"] = {
           action = function()
             return require("obsidian").util.gf_passthrough()
           end,
-          opts = { noremap = false, expr = true, buffer = true },
+          opts = { noremap = false, expr = true, buffer = true, desc = "obsidian.util.gf_passthrough" },
         },
         ["<leader>och"] = {
           action = function()
             return require("obsidian").util.toggle_checkbox()
           end,
-          opts = { buffer = true },
+          opts = { buffer = true, desc = "obsidian.util.toggle_checkbox" },
         },
-        ["<leader>o<cr>"] = {
+        ["<leader>ocs"] = {
           action = function()
             return require("obsidian").util.smart_action()
           end,
-          opts = { buffer = true, expr = true },
+          opts = { buffer = true, expr = true, desc = "obsidian.util.smart_action" },
         },
       },
       picker = {
