@@ -1,4 +1,5 @@
 return {
+  { "tjdevries/colorbuddy.nvim" },
   { "ellisonleao/gruvbox.nvim" },
   { "shaunsingh/nord.nvim" },
   { "sainnhe/gruvbox-material" },
