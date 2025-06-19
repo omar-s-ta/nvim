@@ -1,5 +1,5 @@
 return {
-  { "tjdevries/colorbuddy.nvim" },
+  { "omar-s-ta/colorbuddy.nvim" },
   { "ellisonleao/gruvbox.nvim" },
   { "shaunsingh/nord.nvim" },
   { "sainnhe/gruvbox-material" },
