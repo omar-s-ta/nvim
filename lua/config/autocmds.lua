@@ -6,3 +6,16 @@
 --
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
+
+local function sphere_files()
+  local sphere_dir = "~/development/scala/sphere-backend/"
+  local opts = {
+    dirs = { sphere_dir },
+    hidden = true,
+    ignored = false,
+    follow = true,
+  }
+  Snacks.picker.files(opts)
+end
+
+vim.api.nvim_create_user_command("Sphere", sphere_files, { desc = "search in sphere repo from any nvim" })
