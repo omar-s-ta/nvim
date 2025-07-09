@@ -3,11 +3,12 @@ return {
   { "ellisonleao/gruvbox.nvim" },
   { "shaunsingh/nord.nvim" },
   { "sainnhe/gruvbox-material" },
+  { "EdenEast/nightfox.nvim" },
 
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "gruvbuddy",
+      colorscheme = "nordfox",
     },
   },
 }
