@@ -17,15 +17,21 @@ return {
         terraformls = {
           mason = false,
           cmd = { "terraform-ls", "serve" },
-          filetypes = { "tf", "tfvars", "terraform" },
+          filetypes = { "tf", "tfvars", "terraform", "terraform-vars" },
+          root_dir = function(fname)
+            return require("lspconfig.util").root_pattern("*.terraform", ".git")(fname)
+          end,
+        },
+        tflint = {
+          mason = false,
+          cmd = { "tflint", "--langserver" },
+          filetypes = { "tf", "tfvars", "terraform", "terraform-vars" },
+          root_dir = function(fname)
+            return require("lspconfig.util").root_pattern("*.terraform", ".git", ".tflint.hcl")(fname)
+          end,
         },
       },
     },
-  },
-  -- ensure terraform tools are installed
-  {
-    "mason-org/mason.nvim",
-    opts = { ensure_installed = { "tflint" } },
   },
   {
     "mfussenegger/nvim-lint",
