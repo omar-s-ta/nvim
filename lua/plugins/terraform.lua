@@ -16,7 +16,7 @@ return {
       servers = {
         terraformls = {
           mason = false,
-          cmd = { "terraform-ls" },
+          cmd = { "terraform-ls", "serve" },
           filetypes = { "tf", "tfvars", "terraform" },
         },
       },
