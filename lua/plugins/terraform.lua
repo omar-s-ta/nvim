@@ -8,28 +8,18 @@ return {
 
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = { ensure_installed = { "terraform", "hcl" } },
+    opts = function(_, opts)
+      if type(opts.ensure_installed) == "table" then
+        vim.list_extend(opts.ensure_installed, { "terraform", "hcl" })
+      end
+    end,
   },
   {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
-        terraformls = {
-          mason = false,
-          cmd = { "terraform-ls", "serve" },
-          filetypes = { "tf", "tfvars", "terraform", "terraform-vars" },
-          root_dir = function(fname)
-            return require("lspconfig.util").root_pattern("*.terraform", ".git")(fname)
-          end,
-        },
-        tflint = {
-          mason = false,
-          cmd = { "tflint", "--langserver" },
-          filetypes = { "tf", "tfvars", "terraform", "terraform-vars" },
-          root_dir = function(fname)
-            return require("lspconfig.util").root_pattern("*.terraform", ".git", ".tflint.hcl")(fname)
-          end,
-        },
+        terraformls = {},
+        tflint = {},
       },
     },
   },
