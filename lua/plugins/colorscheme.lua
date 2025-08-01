@@ -4,6 +4,7 @@ return {
   { "shaunsingh/nord.nvim" },
   { "sainnhe/gruvbox-material" },
   { "EdenEast/nightfox.nvim" },
+  { "vague2k/vague.nvim" },
 
   {
     "LazyVim/LazyVim",
