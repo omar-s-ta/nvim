@@ -11,6 +11,13 @@ return {
           keys = {
             { "gS", "<cmd>MetalsGotoSuperMethod<CR>", desc = "Goto Super" },
           },
+          settings = {
+            showImplicitArguments = true,
+            excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },
+            showImplicitConversionsAndClasses = true,
+            showInferredType = true,
+            testUserInterface = "Test Explorer",
+          },
         },
       },
       setup = {
