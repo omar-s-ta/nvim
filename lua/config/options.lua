@@ -13,3 +13,5 @@ local opt = vim.opt
 opt.softtabstop = 2
 opt.scrolloff = 10
 opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+
+vim.o.winborder = "rounded"
