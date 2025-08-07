@@ -10,12 +10,14 @@ return {
         metals = {
           keys = {
             { "gS", "<cmd>MetalsGotoSuperMethod<CR>", desc = "Goto Super" },
+            { "<leader>mt", "<cmd>MetalsSelectTestSuite<CR>", desc = "Run Test Suite" },
+            { "<leader>mc", "<cmd>MetalsSelectTestCase<CR>", desc = "Run Test Case" },
           },
           settings = {
             showImplicitArguments = true,
             excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },
-            showImplicitConversionsAndClasses = true,
-            showInferredType = true,
+            -- showImplicitConversionsAndClasses = true,
+            -- showInferredType = true,
             testUserInterface = "Test Explorer",
           },
         },
