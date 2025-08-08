@@ -19,6 +19,13 @@ return {
             -- showImplicitConversionsAndClasses = true,
             -- showInferredType = true,
             testUserInterface = "Test Explorer",
+            enableSemanticHighlighting = true,
+            serverProperties = {
+              "-Dmetals.allow-multiline-string-formatting=off",
+              "-Dmetals.icons=unicode",
+              "-Dmetals.status-bar=log-message",
+              "-Dmetals.enable-best-effort=true",
+            },
           },
         },
       },
@@ -93,5 +100,18 @@ return {
         changedelete = { text = "~" },
       },
     },
+  },
+
+  {
+    "m00qek/baleia.nvim",
+    config = function()
+      local baleia = require("baleia").setup()
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "dap-repl",
+        callback = function()
+          baleia.automatically(vim.api.nvim_get_current_buf())
+        end,
+      })
+    end,
   },
 }
