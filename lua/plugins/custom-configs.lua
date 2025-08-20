@@ -22,7 +22,7 @@ return {
             enableSemanticHighlighting = true,
             serverProperties = {
               "-Dmetals.allow-multiline-string-formatting=off",
-              "-Dmetals.icons=unicode",
+              -- "-Dmetals.icons=unicode",
               "-Dmetals.status-bar=log-message",
               "-Dmetals.enable-best-effort=true",
             },
