@@ -114,4 +114,10 @@ return {
       })
     end,
   },
+
+  {
+    "chrisgrieser/nvim-lsp-endhints",
+    event = "LspAttach",
+    opts = {},
+  },
 }
