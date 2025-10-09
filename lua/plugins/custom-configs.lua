@@ -108,6 +108,11 @@ return {
   },
 
   {
+    "ggandor/flit.nvim",
+    enabled = false,
+  },
+
+  {
     "m00qek/baleia.nvim",
     config = function()
       local baleia = require("baleia").setup()
