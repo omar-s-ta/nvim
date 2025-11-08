@@ -1,7 +1,7 @@
 return {
   { "omar-s-ta/colorbuddy.nvim" },
   { "ellisonleao/gruvbox.nvim" },
-  { "shaunsingh/nord.nvim" },
+  { "arcticicestudio/nord-vim" },
   { "sainnhe/gruvbox-material" },
   { "EdenEast/nightfox.nvim" },
   { "vague2k/vague.nvim" },
@@ -9,7 +9,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "tokyonight",
+      colorscheme = "nord",
     },
   },
 }
