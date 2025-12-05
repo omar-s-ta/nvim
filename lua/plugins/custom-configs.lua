@@ -13,6 +13,10 @@ return {
           filetypes = { "sh", "zsh" },
         },
         metals = {
+          init_options = {
+            icons = "unicode",
+            disableColorOutput = false,
+          },
           keys = {
             { "gS", "<cmd>MetalsGotoSuperMethod<CR>", desc = "Goto Super" },
             { "<leader>mt", "<cmd>MetalsSelectTestSuite<CR>", desc = "Run Test Suite" },
@@ -21,15 +25,18 @@ return {
           settings = {
             showImplicitArguments = true,
             excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },
-            -- showImplicitConversionsAndClasses = true,
-            -- showInferredType = true,
             testUserInterface = "Test Explorer",
             enableSemanticHighlighting = true,
             serverProperties = {
-              "-Dmetals.allow-multiline-string-formatting=off",
-              -- "-Dmetals.icons=unicode",
               "-Dmetals.status-bar=log-message",
               "-Dmetals.enable-best-effort=true",
+            },
+            inlayHints = {
+              hintsInPatternMatch = { enable = true },
+              typeParameters = { enable = true },
+              inferredTypes = { enable = true },
+              namedParameters = { enable = true },
+              byNameParameters = { enable = true },
             },
           },
         },
