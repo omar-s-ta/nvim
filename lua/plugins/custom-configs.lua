@@ -23,6 +23,7 @@ return {
             { "<leader>mc", "<cmd>MetalsSelectTestCase<CR>", desc = "Run Test Case" },
           },
           settings = {
+            serverVersion = "1.6.4",
             showImplicitArguments = true,
             excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },
             testUserInterface = "Test Explorer",

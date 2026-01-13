@@ -1,6 +1,8 @@
 return {
   "xeluxee/competitest.nvim",
   dependencies = "MunifTanjim/nui.nvim",
+  cmd = { "CompetiTest", "CompetiTestAdd", "CompetiTestEdit" },
+  ft = { "c", "cpp", "rust", "java", "python" },
   config = function()
     require("competitest").setup({
       local_config_file_name = ".competitest.lua",

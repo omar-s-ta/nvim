@@ -15,7 +15,12 @@ local function sphere_files()
     ignored = false,
     follow = true,
   }
-  Snacks.picker.files(opts)
+  local ok, snacks = pcall(require, "snacks")
+  if not ok then
+    vim.notify("Snacks is not available yet", vim.log.levels.WARN)
+    return
+  end
+  snacks.picker.files(opts)
 end
 
 vim.api.nvim_create_user_command("Sphere", sphere_files, { desc = "search in sphere repo from any nvim" })
