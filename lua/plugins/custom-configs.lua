@@ -12,37 +12,57 @@ return {
         bashls = {
           filetypes = { "sh", "zsh" },
         },
-        metals = {
-          init_options = {
-            icons = "unicode",
-            disableColorOutput = false,
-          },
-          keys = {
-            { "gS", "<cmd>MetalsGotoSuperMethod<CR>", desc = "Goto Super" },
-            { "<leader>mt", "<cmd>MetalsSelectTestSuite<CR>", desc = "Run Test Suite" },
-            { "<leader>mc", "<cmd>MetalsSelectTestCase<CR>", desc = "Run Test Case" },
-          },
-          settings = {
-            serverVersion = "1.6.4",
-            showImplicitArguments = true,
-            excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },
-            testUserInterface = "Test Explorer",
-            enableSemanticHighlighting = true,
-            serverProperties = {
-              "-Dmetals.status-bar=log-message",
-              "-Dmetals.enable-best-effort=true",
-            },
-            inlayHints = {
-              hintsInPatternMatch = { enable = true },
-              typeParameters = { enable = true },
-              inferredTypes = { enable = true },
-              namedParameters = { enable = true },
-              byNameParameters = { enable = true },
-            },
-          },
-        },
       },
     },
+  },
+
+  {
+    "scalameta/nvim-metals",
+    opts = function(_, metals_config)
+      metals_config.init_options = vim.tbl_deep_extend("force", metals_config.init_options or {}, {
+        icons = "unicode",
+        disableColorOutput = false,
+      })
+
+      metals_config.settings = vim.tbl_deep_extend("force", metals_config.settings or {}, {
+        serverVersion = "1.6.5",
+        bloopVersion = "2.0.18",
+        showImplicitArguments = true,
+        excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },
+        testUserInterface = "Test Explorer",
+        enableSemanticHighlighting = true,
+        serverProperties = {
+          "-Dmetals.status-bar=log-message",
+          "-Dmetals.enable-best-effort=true",
+        },
+        inlayHints = {
+          hintsInPatternMatch = { enable = true },
+          typeParameters = { enable = true },
+          inferredTypes = { enable = true },
+          namedParameters = { enable = true },
+          byNameParameters = { enable = true },
+        },
+      })
+
+      local previous_on_attach = metals_config.on_attach
+      metals_config.on_attach = function(client, bufnr)
+        if previous_on_attach then
+          previous_on_attach(client, bufnr)
+        end
+
+        client.server_capabilities.foldingRangeProvider = false
+
+        local map = function(keys, command, desc)
+          vim.keymap.set("n", keys, command, { buffer = bufnr, desc = desc })
+        end
+
+        map("gS", "<cmd>MetalsGotoSuperMethod<CR>", "Goto Super")
+        map("<leader>mt", "<cmd>MetalsSelectTestSuite<CR>", "Run Test Suite")
+        map("<leader>mc", "<cmd>MetalsSelectTestCase<CR>", "Run Test Case")
+      end
+
+      return metals_config
+    end,
   },
 
   {
