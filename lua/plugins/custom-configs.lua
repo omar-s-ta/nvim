@@ -82,6 +82,29 @@ return {
   },
 
   {
+    "nvim-lualine/lualine.nvim",
+    opts = function(_, opts)
+      opts.options = opts.options or {}
+      local fallback_theme = opts.options.theme or "auto"
+
+      local resolve_theme = function(colors_name)
+        return colors_name == "default" and "nord" or fallback_theme
+      end
+
+      opts.options.theme = resolve_theme(vim.g.colors_name)
+
+      local group = vim.api.nvim_create_augroup("lualine_default_nord_theme", { clear = true })
+      vim.api.nvim_create_autocmd("ColorScheme", {
+        group = group,
+        callback = function(event)
+          opts.options.theme = resolve_theme(event.match)
+          require("lualine").setup(opts)
+        end,
+      })
+    end,
+  },
+
+  {
     "folke/edgy.nvim",
     opts = function(_, opts)
       opts.keys = vim.tbl_extend("force", opts.keys or {}, {
