@@ -8,7 +8,6 @@ return {
         vim.api.nvim_set_hl(0, "@keyword.function", { fg = "#B48EAD" })
         vim.api.nvim_set_hl(0, "Keyword", { fg = "#B48EAD" })
         vim.api.nvim_set_hl(0, "LspInlayHint", {
-          -- fg = "#8FBCBB",
           fg = "#4C566A",
           bg = "NONE",
           italic = false,
@@ -28,7 +27,16 @@ return {
     end,
   },
   { "sainnhe/gruvbox-material" },
-  { "EdenEast/nightfox.nvim" },
+  {
+    "EdenEast/nightfox.nvim",
+    opts = {
+      groups = {
+        all = {
+          LspInlayHint = { bg = "NONE" },
+        },
+      },
+    },
+  },
   { "vague2k/vague.nvim" },
   { "navarasu/onedark.nvim" },
   { "Mofiqul/vscode.nvim" },
