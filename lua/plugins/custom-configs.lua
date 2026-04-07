@@ -19,7 +19,6 @@ return {
             fallbackFlags = { "-std=c++23" },
           },
         },
-        eslint = {},
         bashls = {
           filetypes = { "sh", "zsh" },
         },
