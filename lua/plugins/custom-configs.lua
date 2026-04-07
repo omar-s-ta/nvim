@@ -164,14 +164,9 @@ return {
 
   {
     "m00qek/baleia.nvim",
+    ft = "dap-repl",
     config = function()
-      local baleia = require("baleia").setup()
-      vim.api.nvim_create_autocmd("FileType", {
-        pattern = "dap-repl",
-        callback = function()
-          baleia.automatically(vim.api.nvim_get_current_buf())
-        end,
-      })
+      require("baleia").setup().automatically(vim.api.nvim_get_current_buf())
     end,
   },
 
