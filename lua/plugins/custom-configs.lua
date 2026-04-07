@@ -1,5 +1,16 @@
 return {
   {
+    "folke/snacks.nvim",
+    opts = {
+      explorer = { enabled = false },
+    },
+    keys = {
+      { "<leader>E", false },
+      { "<leader>e", false },
+    },
+  },
+
+  {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
