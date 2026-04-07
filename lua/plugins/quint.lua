@@ -1,19 +1,6 @@
 -- Quint specification language support
 -- Filetype detection, syntax highlighting, and LSP
 
-vim.filetype.add({
-  extension = {
-    qnt = "quint",
-  },
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "quint",
-  callback = function()
-    vim.bo.commentstring = "// %s"
-  end,
-})
-
 return {
   {
     "neovim/nvim-lspconfig",
@@ -26,9 +13,16 @@ return {
       },
     },
     init = function()
+      vim.filetype.add({
+        extension = {
+          qnt = "quint",
+        },
+      })
+
       vim.api.nvim_create_autocmd("FileType", {
         pattern = "quint",
         callback = function(args)
+          vim.bo[args.buf].commentstring = "// %s"
           vim.lsp.start({
             name = "quint",
             cmd = { "quint-language-server", "--stdio" },
