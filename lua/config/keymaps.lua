@@ -29,5 +29,4 @@ map("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
 -- is not what someone will guess without a bit more experience.
 -- This won't work in all terminal emulators/tmux/etc. Try your own mapping
 -- or just use <C-\><C-n> to exit terminal mode
-vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 map("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
