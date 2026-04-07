@@ -36,9 +36,11 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.editor.aerial" },
     { import = "lazyvim.plugins.extras.editor.dial" },
     { import = "lazyvim.plugins.extras.editor.inc-rename" },
+    { import = "lazyvim.plugins.extras.editor.illuminate" },
     -- { import = "lazyvim.plugins.extras.editor.leap" },
     { import = "lazyvim.plugins.extras.editor.mini-files" },
     -- { import = "lazyvim.plugins.extras.editor.navic" },
+    { import = "lazyvim.plugins.extras.editor.refactoring" },
 
     { import = "lazyvim.plugins.extras.formatting.prettier" },
 
@@ -60,6 +62,7 @@ require("lazy").setup({
 
     { import = "lazyvim.plugins.extras.test.core" },
 
+    { import = "lazyvim.plugins.extras.ui.mini-animate" },
     { import = "lazyvim.plugins.extras.ui.treesitter-context" },
 
     { import = "lazyvim.plugins.extras.util.dot" },
