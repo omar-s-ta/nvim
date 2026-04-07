@@ -1,6 +1,6 @@
 return {
-  { "omar-s-ta/colorbuddy.nvim" },
-  { "ellisonleao/gruvbox.nvim" },
+  { "omar-s-ta/colorbuddy.nvim", lazy = true },
+  { "ellisonleao/gruvbox.nvim", lazy = true },
   {
     "arcticicestudio/nord-vim",
     config = function()
@@ -26,7 +26,7 @@ return {
       end
     end,
   },
-  { "sainnhe/gruvbox-material" },
+  { "sainnhe/gruvbox-material", lazy = true },
   {
     "EdenEast/nightfox.nvim",
     opts = {
@@ -37,12 +37,13 @@ return {
       },
     },
   },
-  { "vague2k/vague.nvim" },
-  { "navarasu/onedark.nvim" },
-  { "Mofiqul/vscode.nvim" },
+  { "vague2k/vague.nvim", lazy = true },
+  { "navarasu/onedark.nvim", lazy = true },
+  { "Mofiqul/vscode.nvim", lazy = true },
 
   {
     "rose-pine/neovim",
+    lazy = true,
     main = "rose-pine",
     opts = {
       styles = {
