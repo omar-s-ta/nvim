@@ -35,7 +35,7 @@ return {
       })
 
       metals_config.settings = vim.tbl_deep_extend("force", metals_config.settings or {}, {
-        serverVersion = "1.6.5",
+        serverVersion = "1.6.7",
         bloopVersion = "2.0.18",
         showImplicitArguments = true,
         excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },
@@ -197,9 +197,27 @@ return {
       end,
     },
     keys = {
-      { "zR", function() require("ufo").openAllFolds() end, desc = "Open all folds" },
-      { "zM", function() require("ufo").closeAllFolds() end, desc = "Close all folds" },
-      { "zp", function() require("ufo").peekFoldedLinesUnderCursor() end, desc = "Peek fold" },
+      {
+        "zR",
+        function()
+          require("ufo").openAllFolds()
+        end,
+        desc = "Open all folds",
+      },
+      {
+        "zM",
+        function()
+          require("ufo").closeAllFolds()
+        end,
+        desc = "Close all folds",
+      },
+      {
+        "zp",
+        function()
+          require("ufo").peekFoldedLinesUnderCursor()
+        end,
+        desc = "Peek fold",
+      },
     },
   },
 }
