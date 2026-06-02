@@ -39,7 +39,7 @@ require("lazy").setup({
     -- { import = "lazyvim.plugins.extras.editor.leap" },
     { import = "lazyvim.plugins.extras.editor.mini-files" },
     -- { import = "lazyvim.plugins.extras.editor.navic" },
-    { import = "lazyvim.plugins.extras.editor.refactoring" },
+    -- { import = "lazyvim.plugins.extras.editor.refactoring" }, -- disabled: lewis6991/async.nvim shadows promise-async, breaks nvim-ufo on 0.12
 
     { import = "lazyvim.plugins.extras.formatting.prettier" },
 
