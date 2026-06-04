@@ -1,5 +1,4 @@
 return {
-  { "omar-s-ta/colorbuddy.nvim", lazy = true },
   { "ellisonleao/gruvbox.nvim", lazy = true },
   {
     "arcticicestudio/nord-vim",
@@ -29,7 +28,7 @@ return {
   { "sainnhe/gruvbox-material", lazy = true },
   {
     "EdenEast/nightfox.nvim",
-    lazy = true,
+    lazy = false,
     opts = {
       groups = {
         all = {
@@ -56,7 +55,25 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "nord",
+      colorscheme = function()
+        local function is_dark()
+          local handle = io.popen("defaults read -g AppleInterfaceStyle 2>/dev/null")
+          if handle then
+            local result = handle:read("*a")
+            handle:close()
+            return result:match("Dark") ~= nil
+          end
+          return true
+        end
+
+        if is_dark() then
+          -- vim.o.background = "dark"
+          vim.cmd.colorscheme("nord")
+        else
+          -- vim.o.background = "light"
+          vim.cmd.colorscheme("nord")
+        end
+      end,
     },
   },
 }
